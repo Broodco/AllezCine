@@ -1,7 +1,7 @@
 <template>
   <v-app>
 <cpNavbar> </cpNavbar>
-<cpCarousel></cpCarousel>
+<cpCarousel ></cpCarousel>
 <cpContent></cpContent>
 <cpFooter></cpFooter>
   </v-app>
