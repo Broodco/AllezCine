@@ -1,33 +1,26 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
+<cpNavbar> </cpNavbar>
+<cpCarousel></cpCarousel>
+<cpContent></cpContent>
+<cpFooter></cpFooter>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import cpNavbar from './components/navbar/cp-Navbar.vue';
+import cpCarousel from './components/carousel/cp-Carousel.vue';
+import cpContent from './components/content/cp-Content.vue';
+import cpFooter from './components/footer/cp-Footer.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    cpNavbar,
+    cpCarousel,
+    cpContent,
+    cpFooter
+    
   },
   data () {
     return {
