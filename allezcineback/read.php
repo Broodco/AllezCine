@@ -3,18 +3,17 @@
     include('./Settings/dbconnect.php');
     require('./Settings/header.php');
 
-    $sql = 'SELECT * FROM COMMENTAIRES WHERE (ID-MOVIES = :IDMOVIES  )';
+    $sql = "SELECT * FROM `COMMENTAIRES` WHERE (`ID-MOVIES`= :IDMOVIES)";
     $stmt = $pdo->prepare($sql);
 
     if(true || isset($_GET['idMovie'])){
-        $idMovies = 10; //$_GET['idMovie'];
+        $idMovies = $_GET['idMovie'];
 
         $stmt->execute([
             'IDMOVIES'=> $idMovies,
         ]);
     
         $commentaires = $stmt->fetchAll();
-        var_dump($commentaires);
         try{
             print json_encode($commentaires);
         }catch(Exception $e){
