@@ -15,9 +15,9 @@
     $stmt = $pdo->prepare($sql);
 
     if(true || isset($_POST['Title'])){
-        $idMovies = 10;//$_POST['idMovies'];
-        $title = "lulz";//$_POST['title'];
-        $texte = "testing,attention please";// $_POST['texte'];
+        $idMovies = $_POST['idMovies'];
+        $title = $_POST['title'];
+        $texte = $_POST['texte'];
 
         $stmt->execute([
             'IDMOVIES'=> $idMovies,
