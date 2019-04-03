@@ -1,15 +1,9 @@
 <?php
-    // $user = 'allezcine';
-    // $password = 'cinema';
-    // $host='10.20.1.71';
-    // $dbname ='AllezCine';
 
-    $dsn = 'mysql:dbname=AllezCine;host=10.20.1.71:3306';
-    $user = 'allezcine';
-    $password = 'cinema';
-
+    $dsn = 'mysql:dbname=COMMENTAIRES;host=localhost';
+    $user = 'shoguna';
+    $password = 'Snooze123:)';
         
-        //$dsn = "mysql:host=$host;port=80;dbname=$dbname;";
         try {
             $pdo = new PDO($dsn, $user, $password);
             $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
