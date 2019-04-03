@@ -1,8 +1,8 @@
 <?php
 
     $dsn = 'mysql:dbname=COMMENTAIRES;host=localhost';
-    $user = 'shoguna';
-    $password = 'Snooze123:)';
+    $user = '';
+    $password = '';
         
         try {
             $pdo = new PDO($dsn, $user, $password);

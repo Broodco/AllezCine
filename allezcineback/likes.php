@@ -18,6 +18,8 @@
         print json_encode(array("message"=>"Like was properly added"));
 
     } else {
+        echo "A problem happened while sending like! ";
+        http_response_code(404);
 
     }
 ?>

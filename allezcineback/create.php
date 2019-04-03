@@ -29,6 +29,8 @@
         print json_encode(array("message"=>"Contact created"));
     }else{
         echo "Error posting comment :(";
+        http_response_code(404);
+
     }
 
 ?>
