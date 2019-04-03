@@ -22,6 +22,8 @@
         };
     } else{
         echo "This movie doesn't exists!";
+        http_response_code(404);
+
     }
 
     
