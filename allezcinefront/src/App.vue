@@ -1,9 +1,9 @@
 <template>
   <v-app>
-<cpNavbar> </cpNavbar>
-<cpCarousel ></cpCarousel>
-<cpContent></cpContent>
-<cpFooter></cpFooter>
+    <cpNavbar> </cpNavbar>
+    <cpCarousel></cpCarousel>
+    <cpContent></cpContent>
+    <cpFooter></cpFooter>
   </v-app>
 </template>
 
