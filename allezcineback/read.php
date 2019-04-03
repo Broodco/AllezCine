@@ -6,7 +6,7 @@
     $sql = "SELECT * FROM `COMMENTAIRES` WHERE (`ID-MOVIES`= :IDMOVIES)";
     $stmt = $pdo->prepare($sql);
 
-    if(true || isset($_GET['idMovie'])){
+    if(isset($_GET['idMovie'])){
         $idMovies = $_GET['idMovie'];
 
         $stmt->execute([
