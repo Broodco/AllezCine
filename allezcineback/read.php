@@ -18,10 +18,10 @@
             print json_encode($commentaires);
         }catch(Exception $e){
             var_dump($e);
-            echo "This movie doesn't exists!";
+            echo "Error connecting to the Data Base!";
         };
     } else{
-        echo "error!";
+        echo "This movie doesn't exists!";
     }
 
     
