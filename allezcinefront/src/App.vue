@@ -2,7 +2,7 @@
   <v-app>
     <cpNavbar> </cpNavbar>
     <cpCarousel></cpCarousel>
-    <cpContent></cpContent>
+    <router-view/>
     <cpFooter></cpFooter>
   </v-app>
 </template>
@@ -10,7 +10,6 @@
 <script>
 import cpNavbar from './components/navbar/cp-Navbar.vue';
 import cpCarousel from './components/carousel/cp-Carousel.vue';
-import cpContent from './components/content/cp-Content.vue';
 import cpFooter from './components/footer/cp-Footer.vue';
 
 export default {
@@ -18,7 +17,6 @@ export default {
   components: {
     cpNavbar,
     cpCarousel,
-    cpContent,
     cpFooter
     
   },
