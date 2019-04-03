@@ -14,7 +14,7 @@
         )";
     $stmt = $pdo->prepare($sql);
 
-    if(true || isset($_POST['Title'])){
+    if(isset($_POST['Title'])){
         $idMovies = $_POST['idMovies'];
         $title = $_POST['title'];
         $texte = $_POST['texte'];
