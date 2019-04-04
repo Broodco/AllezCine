@@ -1,23 +1,27 @@
 <template>
-<div id="cp-Carousel">
-    <v-carousel hide-delimiters hide-controls style="height: 100%">
-      <v-carousel-item
-        v-for="(item,i) in items"
-        :key="i"
-        :src="item.src">
-       <v-jumbotron dark>
-            <v-container fill-height>
-              <v-layout align-center>
-                <!-- <v-flex> -->
-                  <span><h3 class="display-3">{{ title }}</h3></span>
-                  <span><h3 style="color:red" class="display-3">{{ text }}</h3></span>
-                <!-- </v-flex> -->
-              </v-layout>
-            </v-container>
-          </v-jumbotron>
-          </v-carousel-item>
-   </v-carousel> 
-</div>
+  <div id="cp-Carousel">
+    <v-carousel hide-delimiters hide-controls>
+      <v-carousel-item class="carous"
+          v-for="(item,i) in items"
+          :key="i"
+          :src="item.src">
+        <v-jumbotron dark>
+          <v-container container fill-height grid-list-md text-xs-center>
+            <v-layout row wrap>
+              <v-flex xs12 md4 lg4  class="nom">
+                <div><h2>ALLEZ<span class="red--text">CINE!</span></h2> </div>
+              </v-flex>
+              <v-flex xs12 class="descr">
+                <h1>LASTEST <span class="red--text">ON</span>LINE <span class="red--text">MO</span>VIES</h1>
+                <h3>IN SPACE NO ONE CAN HEAR YOU SCREAM</h3>
+                <v-btn color="red">GO TO THE FILM</v-btn>
+              </v-flex>
+            </v-layout>  
+          </v-container>
+        </v-jumbotron>
+      </v-carousel-item>
+    </v-carousel> 
+  </div>
 </template>
 
 <script>
@@ -30,8 +34,7 @@ export default {
       items:[
         {src:""},{src:""},{src:""},{src:""},{src:""},
       ],
-      title: "ALLEZ",
-      text:"CINE!",
+    
     }
   },
   mounted () {
@@ -47,10 +50,13 @@ export default {
   }
 } 
 
-
-
 </script>
 
 <style scoped>
-
+.container.grid-list-md .layout .flex {
+    padding: 63px;
+}
+h2{
+  font-size:2.5em;;
+}
 </style>
