@@ -4,7 +4,6 @@
         v-model="drawer"
         dark
         absolute
-        clipped
     >
         <v-list class='pa-1'>
             <v-list-tile 
