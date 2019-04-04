@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <cpNavbar @switchDrawer="switchDrawer()"> </cpNavbar>
-    <cpDrawer :drawer="drawer"/>
+    <cpDrawer class="hidden-md-and-up" :drawer="drawer"/>
     <cpCarousel></cpCarousel>
     <cpContent></cpContent>
     <cpFooter></cpFooter>
