@@ -84,7 +84,8 @@ export default {
     data(){
         return{
             mini : false,
-            searchStatus : false
+            searchStatus : false,
+            drawer : false
         }
     },
     methods:{
@@ -95,14 +96,11 @@ export default {
         },
         showSearchBar(){
             this.searchStatus = !this.searchStatus
+        },
+        switchDrawer(){
+            this.drawer = !this.drawer
         }
-    },
-    props:{
-        drawer : {
-            type: Boolean,
-            default : null
-        }
-    }
+    } 
 }
 </script>
 
