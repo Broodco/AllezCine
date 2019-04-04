@@ -1,12 +1,11 @@
 <template>
+    
     <div class="gallery">
         <h1>{{properText(contenu)}}</h1>
-        <v-layout row wrap>
-            <v-flex xs12 sm6 md2>
+        <v-layout align-start justify-space-around wrap row >
                 <div v-for="(movie,key) in  (movies)" v-bind:key="key">
-                    <singles :movie="{movie}"/>
+                    <singles  :movie="{movie}"/>
                 </div>
-            </v-flex>
         </v-layout>
     </div>
 </template>
@@ -55,7 +54,7 @@ export default {
 <style scoped>
     .gallery{
         background-color: rgb(255, 255, 255);
-        border: 1px solid green;
+        /* border: 1px solid green; */
         margin:30px;
         padding: 30px;
     }

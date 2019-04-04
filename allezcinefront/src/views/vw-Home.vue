@@ -1,7 +1,9 @@
 <template>
     <div id="big">
-        <gallery contenu="movie"/>
-        <gallery contenu="tv"/>
+        <v-container fluid>
+            <gallery contenu="movie"/>
+            <gallery contenu="tv"/>
+        </v-container>
     </div>
 </template>
 
@@ -19,7 +21,5 @@ export default {
 </script>
 
 <style scoped>
-#big{
-    margin-top:200px;
-}
+
 </style>
