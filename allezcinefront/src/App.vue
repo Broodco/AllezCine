@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <cpNavbar> </cpNavbar>
+    <cpNavbar @switchDrawer="switchDrawer()"> </cpNavbar>
+    <cpDrawer :drawer="drawer"/>
     <cpCarousel></cpCarousel>
     <cpContent></cpContent>
     <cpFooter></cpFooter>
@@ -9,6 +10,7 @@
 
 <script>
 import cpNavbar from './components/navbar/cp-Navbar.vue';
+import cpDrawer from './components/navbar/cp-Drawer.vue';
 import cpCarousel from './components/carousel/cp-Carousel.vue';
 import cpContent from './components/content/cp-Content.vue';
 import cpFooter from './components/footer/cp-Footer.vue';
@@ -17,6 +19,7 @@ export default {
   name: 'App',
   components: {
     cpNavbar,
+    cpDrawer,
     cpCarousel,
     cpContent,
     cpFooter
@@ -24,7 +27,12 @@ export default {
   },
   data () {
     return {
-      //
+      drawer : false
+    }
+  },
+  methods: {
+    switchDrawer(){
+      this.drawer = !this.drawer
     }
   }
 }
