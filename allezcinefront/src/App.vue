@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <cpNavbar @switchDrawer="switchDrawer()"> </cpNavbar>
-    <cpDrawer class="hidden-md-and-up" :drawer="drawer"/>
+    <cpNavbar @switchDrawer="switchChildDrawer()"> </cpNavbar>
+    <cpDrawer ref="drawerComp" class="hidden-md-and-up"/>
     <cpCarousel></cpCarousel>
     <cpContent></cpContent>
     <cpFooter></cpFooter>
@@ -25,14 +25,9 @@ export default {
     cpFooter
     
   },
-  data () {
-    return {
-      drawer : false
-    }
-  },
   methods: {
-    switchDrawer(){
-      this.drawer = !this.drawer
+    switchChildDrawer(){
+      this.$refs.drawerComp.switchDrawer();
     }
   }
 }
