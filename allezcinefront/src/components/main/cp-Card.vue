@@ -1,6 +1,7 @@
 <template>
     <div class="singleContainer">
 
+        <v-flex >
             <v-card flat tile>
                 <!-- {{movie}} -->
                 <v-img
@@ -37,7 +38,8 @@
 
 h3{
     margin:auto;
-    width: 180px;
+    width: 90px;
+    height: auto
 }
 /*.v-imgage{
     margin:auto;
