@@ -52,11 +52,14 @@ export default {
     },
     methods: {
         onChange : debounce(function(){
-            if (this.isOpen){
-                this.isLoading = true
+            if (this.isLoading){
+                this.isOpen = false
             } else {
-                this.isOpen = true;
-                this.loadResults()
+                if (this.search != ''){
+                    this.isOpen = true;
+                    this.isLoading = true
+                    this.loadResults()
+                }
             }
         },1000),
         loadResults(){
@@ -83,6 +86,7 @@ export default {
                         }
                     }
                 })
+            this.isLoading = false;
         },
         setResult(result){
             this.search = result.name
@@ -109,6 +113,8 @@ export default {
         handleClickOutside(evt) {
             if (!this.$el.contains(evt.target)) {
                 this.isOpen = false;
+                this.isLoading = false;
+                this.results = [];
                 this.arrowCounter = -1;
             }
         },
