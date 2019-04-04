@@ -13,7 +13,7 @@
             <v-btn small depressed flat class='text-capitalize' @click="changeView($event,'series')">Séries TV</v-btn>
         </v-toolbar-items>
         <v-spacer/>
-        <SearchBar/>
+        <SearchBar class="hidden-sm-and-down"/>
     </v-toolbar>
 </template>
 
