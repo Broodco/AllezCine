@@ -2,6 +2,7 @@
   <v-app>
     <cpNavbar> </cpNavbar>
     <cpCarousel></cpCarousel>
+    <cpSocial></cpSocial>
     <cpContent></cpContent>
     <cpFooter></cpFooter>
   </v-app>
@@ -12,6 +13,7 @@ import cpNavbar from './components/navbar/cp-Navbar.vue';
 import cpCarousel from './components/carousel/cp-Carousel.vue';
 import cpContent from './components/content/cp-Content.vue';
 import cpFooter from './components/footer/cp-Footer.vue';
+import cpSocial from './components/social/cp-Social';
 
 export default {
   name: 'App',
@@ -19,7 +21,8 @@ export default {
     cpNavbar,
     cpCarousel,
     cpContent,
-    cpFooter
+    cpFooter,
+    cpSocial,
     
   },
   data () {
