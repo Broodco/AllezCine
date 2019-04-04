@@ -6,14 +6,16 @@
         height="60px"
         dark
     >
-        <v-toolbar-side-icon class="hidden-md-and-up"/>
+        <v-toolbar-side-icon 
+        class="hidden-md-and-up"
+        @click.stop="sendEvent"/>
         <v-toolbar-items class="hidden-sm-and-down">
             <v-btn small depressed flat color="red" class="custom-hover font-weight-bold" @click="changeView($event,'home')">Home</v-btn>
             <v-btn small depressed flat class='text-capitalize' @click="changeView($event,'movies')">Films Populaires</v-btn>
             <v-btn small depressed flat class='text-capitalize' @click="changeView($event,'series')">Séries TV</v-btn>
         </v-toolbar-items>
         <v-spacer/>
-        <SearchBar class="hidden-sm-and-down"/>
+        <SearchBar :isMobile='false' class="hidden-sm-and-down"/>
     </v-toolbar>
 </template>
 
@@ -30,6 +32,9 @@ export default {
             this.$router.push({
                 name : reference
             })
+        },
+        sendEvent(){
+            this.$emit('switchDrawer');
         }
     }
 }

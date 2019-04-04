@@ -10,7 +10,7 @@
         @keydown.up="onArrowUp()"
         @keydown.enter="onEnter()"
         >
-        <ul v-show="isOpen" class="autocomplete-results">
+        <ul v-show="isOpen" :class="[isMobile? 'autocomplete-results-mobile' : 'autocomplete-results']">
             <li 
                 class="loading" 
                 v-if="isLoading">
@@ -46,6 +46,9 @@ export default {
             isLoading: false,
             arrowCounter : -1
         }
+    },
+    props:{
+        isMobile : Boolean
     },
     methods: {
         onChange : debounce(function(){
@@ -146,6 +149,19 @@ export default {
         border: 1px solid #eeeeee;
         height: auto;
         width: 275px;
+    }
+    .autocomplete-results-mobile {
+        position: fixed;
+        top: 95px;
+        left: 90px;
+        padding: 0;
+        margin: 0;
+        background: white;
+        color : black;
+        border: 1px solid #eeeeee;
+        height: auto;
+        width: 194px;
+        z-index: 5;
     }
     .autocomplete-result {
         list-style: none;
