@@ -1,19 +1,37 @@
 <template>
     <div class="gallery">
-        <p>{{movies}}</p>
+        <h1>{{properText(contenu)}}</h1>
+        <v-layout row wrap>
+            <v-flex xs12 sm6 md2>
+                <div v-for="(movie,key) in  (movies)" v-bind:key="key">
+                    <singles :movie="{movie}"/>
+                </div>
+            </v-flex>
+        </v-layout>
     </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+import singles from './cp-Card.vue'
 export default {
     data(){
         return{
             movies:{},
+            media: "",
         }
     },
     components: {
-        
+        singles,
+    },
+    methods:{
+        properText : function(typeOfMedia){
+            if(typeOfMedia == "tv"){
+                return "Serie TV"
+            } else {
+                return "Films"
+            }
+        }
     },
     props:[
         'contenu'],
@@ -21,13 +39,29 @@ export default {
         axios
             .get(`https://api.themoviedb.org/3/trending/${this.contenu}/day?api_key=833ff06d69182d00cff97e3090365785`)
             .then(response => {
-                this.movies = response.data.results
+                this.movies = response.data.results.slice(0,12)
             })
             console.log(this.movies)
+            this.media = this.contenu
     },
+    computed:{
+        maxTwelve: function() {
+            return this.movies.slice(0,11);
+        }
+    }
 }
 </script>
 
 <style scoped>
+    .gallery{
+        background-color: rgb(255, 255, 255);
+        border: 1px solid green;
+        margin:30px;
+        padding: 30px;
+    }
 
+    h1{
+        border-left: 5px solid red;
+        padding-left: 15px;
+    }
 </style>
