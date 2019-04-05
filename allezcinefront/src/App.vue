@@ -4,7 +4,7 @@
     <cpDrawer ref="drawerComp" class="hidden-md-and-up"/>
     <cpCarousel></cpCarousel>
     <cpSocial></cpSocial>
-    <cpContent></cpContent>
+    <router-view></router-view>
     <cpFooter></cpFooter>
   </v-app>
 </template>
@@ -22,7 +22,6 @@ export default {
     cpNavbar,
     cpDrawer,
     cpCarousel,
-    cpContent,
     cpSocial,
     cpFooter
     

@@ -3,7 +3,7 @@
         :mini-variant="mini"
         v-model="drawer"
         dark
-        absolute
+        fixed
         clipped
     >
         <v-list class='pa-1'>
