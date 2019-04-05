@@ -1,6 +1,6 @@
 <template>
     <v-layout row>
-        <v-flex offset-sm1 sm10>
+        <v-flex offset-md1 md10 sm12>
             <div id="big">
                 <v-container fluid>
                     <Gallery contenu="movie"/>

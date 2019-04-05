@@ -56,23 +56,17 @@ img{
 }
 
 .tras{
-	position: absolute;
-	left: -189px;
 	transition: left 1s, transform 1s;
 	white-space: nowrap;
 }
 .tras1{
-	position: absolute;
-	left: -189px;
 	transition: left 1s, transform 1s;
 	white-space: nowrap;
 }
-    #bloc:hover .tras{
-	left: 10%;
-	transform: translateX(-100%);
+#bloc:hover .tras{
+	transform: translateX(30%);
 }
 #bloc1:hover .tras1{
-	left: 10%;
-	transform: translateX(-100%);
+	transform: translateX(30%);
 }
 </style>
