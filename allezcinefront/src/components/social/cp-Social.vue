@@ -3,14 +3,14 @@
         <div id="bloc">
             <div class="tras">
                 <a href="http://www.facebook.com">
-                    <img src="../../assets/iconfinder-icon.svg"height="40px" width="40px">
+                    <img src="../../assets/iconfinder-icon.svg" height="40px" width="40px">
                 </a>
             </div>
         </div>
         <div id="bloc1">
             <div class="tras1">
                 <a href="http://www.twitter.com">
-                    <img src="../../assets/twitter.svg"height="40px" width="40px">
+                    <img src="../../assets/twitter.svg" height="40px" width="40px">
                 </a>
             </div>
         </div>  
@@ -56,23 +56,17 @@ img{
 }
 
 .tras{
-	position: absolute;
-	left: -189px;
 	transition: left 1s, transform 1s;
 	white-space: nowrap;
 }
 .tras1{
-	position: absolute;
-	left: -189px;
 	transition: left 1s, transform 1s;
 	white-space: nowrap;
 }
-    #bloc:hover .tras{
-	left: 10%;
-	transform: translateX(-100%);
+#bloc:hover .tras{
+	transform: translateX(30%);
 }
 #bloc1:hover .tras1{
-	left: 10%;
-	transform: translateX(-100%);
+	transform: translateX(30%);
 }
 </style>

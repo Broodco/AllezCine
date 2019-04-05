@@ -55,8 +55,6 @@ export default {
     .gallery{
         background-color: rgb(255, 255, 255);
         /* border: 1px solid green; */
-        margin:30px;
-        padding: 30px;
     }
     h1{
         border-left: 5px solid red;

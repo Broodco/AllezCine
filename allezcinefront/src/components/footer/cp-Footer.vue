@@ -67,7 +67,7 @@ export default {
 .groupe{
     display:flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
 }
 .soustitre{
     display:flex;
