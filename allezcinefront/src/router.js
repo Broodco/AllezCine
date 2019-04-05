@@ -15,17 +15,17 @@ export default new Router({
       component: Home
     },
     {
-      path: '/',
+      path: '/movies',
       name: 'movies',
       component: Movies
     },
     {
-      path: '/',
+      path: '/series',
       name: 'series',
       component: Series
     },
     {
-      path: '/',
+      path: '/details',
       name: 'details',
       component: Details,
       props: true
