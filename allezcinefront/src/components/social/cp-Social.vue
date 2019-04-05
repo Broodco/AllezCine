@@ -1,7 +1,7 @@
 <template>
 <div>
-    <div id="bloc"><div class="tras"><img src="../../assets/iconfinder-icon.svg"height="20px" width="20px"></div></div>
-    <div id="bloc1"><div class="tras1"><img src="../../assets/twitter.svg"height="20px" width="20px"></div></div>  
+    <div id="bloc"><div class="tras"><a href="http://www.facebook.com"><img src="../../assets/iconfinder-icon.svg"height="40px" width="40px"></a></div></div>
+    <div id="bloc1"><div class="tras1"><a href="http://www.twitter.com"><img src="../../assets/twitter.svg"height="40px" width="40px"></a></div></div>  
 </div>
 </template>
 
@@ -13,29 +13,29 @@ export default {
 
 <style scoped>
 #bloc{
-    height: 20px;
+    height: 46px;
     width:100px;
     
 }
 
 #bloc1{
-    height: 20px;
+    height: 40px;
     width:100px;
     
 }
 
 .tras{
     background-color:#355892;
-    height: 20px;
-    width: 59px;
-    border-radius: 9px;
+    height: 40px;
+    width: 240px;
+    border-radius: 17px;
 }
 
 .tras1{
     background-color:#55aced;
-    height: 20px;
-    width: 59px;
-    border-radius: 9px;
+    height: 40px;
+    width: 240px;
+    border-radius: 17px;
 }
 
 
@@ -45,22 +45,22 @@ img{
 
 .tras{
 	position: absolute;
-	left: -40px;
+	left: -189px;
 	transition: left 1s, transform 1s;
 	white-space: nowrap;
 }
 .tras1{
 	position: absolute;
-	left: -40px;
+	left: -189px;
 	transition: left 1s, transform 1s;
 	white-space: nowrap;
 }
     #bloc:hover .tras{
-	left: 5%;
+	left: 10%;
 	transform: translateX(-100%);
 }
 #bloc1:hover .tras1{
-	left: 5%;
+	left: 10%;
 	transform: translateX(-100%);
 }
 </style>
