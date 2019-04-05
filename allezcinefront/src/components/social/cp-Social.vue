@@ -1,8 +1,20 @@
 <template>
-<div>
-    <div id="bloc"><div class="tras"><a href="http://www.facebook.com"><img src="../../assets/iconfinder-icon.svg"height="40px" width="40px"></a></div></div>
-    <div id="bloc1"><div class="tras1"><a href="http://www.twitter.com"><img src="../../assets/twitter.svg"height="40px" width="40px"></a></div></div>  
-</div>
+    <div>
+        <div id="bloc">
+            <div class="tras">
+                <a href="http://www.facebook.com">
+                    <img src="../../assets/iconfinder-icon.svg"height="40px" width="40px">
+                </a>
+            </div>
+        </div>
+        <div id="bloc1">
+            <div class="tras1">
+                <a href="http://www.twitter.com">
+                    <img src="../../assets/twitter.svg"height="40px" width="40px">
+                </a>
+            </div>
+        </div>  
+    </div>
 </template>
 
 <script>
