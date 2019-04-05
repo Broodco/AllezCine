@@ -1,18 +1,17 @@
 <template>
-    
     <div class="gallery">
         <h1>{{properText(contenu)}}</h1>
         <v-layout align-start justify-space-around wrap row >
-                <div v-for="(movie,key) in  (movies)" v-bind:key="key">
-                    <singles  :movie="{movie}"/>
-                </div>
+            <div v-for="(movie,key) in  (movies)" v-bind:key="key">
+                <Card :movie="{movie}"/>
+            </div>
         </v-layout>
     </div>
 </template>
 
 <script>
 import axios from 'axios';
-import singles from './cp-Card.vue'
+import Card from './cp-Card.vue';
 export default {
     data(){
         return{
@@ -21,7 +20,7 @@ export default {
         }
     },
     components: {
-        singles,
+        Card
     },
     methods:{
         properText : function(typeOfMedia){
@@ -32,8 +31,9 @@ export default {
             }
         }
     },
-    props:[
-        'contenu'],
+    props:{
+        contenu : String
+    },  
     mounted(){
         axios
             .get(`https://api.themoviedb.org/3/trending/${this.contenu}/day?api_key=833ff06d69182d00cff97e3090365785`)
@@ -58,7 +58,6 @@ export default {
         margin:30px;
         padding: 30px;
     }
-
     h1{
         border-left: 5px solid red;
         padding-left: 15px;
