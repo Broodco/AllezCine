@@ -4,7 +4,6 @@
         v-model="drawer"
         dark
         fixed
-        clipped
     >
         <v-list class='pa-1'>
             <v-list-tile 
@@ -103,6 +102,3 @@ export default {
     } 
 }
 </script>
-
-<style>
-</style>
