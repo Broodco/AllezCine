@@ -8,6 +8,7 @@ import Details from './views/vw-Details.vue'
 Vue.use(Router)
 
 export default new Router({
+  mode : 'history',
   routes: [
     {
       path: '/',
@@ -25,10 +26,9 @@ export default new Router({
       component: Series
     },
     {
-      path: '/details',
+      path: '/details/:media/:id',
       name: 'details',
       component: Details,
-      props: true
     }
   ]
 })
