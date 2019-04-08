@@ -8,12 +8,13 @@
                 <v-layout column>
                     <v-flex xs12 >
                         <v-layout row wrap pb-5 align-space-around>
-                            <v-flex xs12 md12 lg6 class='display-2 resp-center'>
+                            <v-flex xs12 pb-1 class='display-2 resp-center'>
                                 {{mediaData.title}}
                             </v-flex>
-                            <v-flex xs12 md12 lg6 align-self-center class="resp-center">
-                                <v-icon v-for="(rating,index) in roundUserRating" :key="index">star</v-icon>
-                                <v-icon v-if="modUserRating">star_half</v-icon>
+                            <v-flex xs12 align-self-end class="resp-center">
+                                <v-icon large color="yellow darken-1" v-for="(rating,index) in roundUserRating" :key="index">star</v-icon>
+                                <v-icon large color="yellow darken-1" v-if="modUserRating">star_half</v-icon>
+                                <v-icon large color="yellow darken-1" v-for="(left,indexleft) in restUserRating" :key="indexleft">star_border</v-icon>
                             </v-flex>
                         </v-layout>
                     </v-flex>
@@ -29,7 +30,7 @@
                     </v-flex>
                     <v-flex>
                         <v-layout row wrap class='resp-center'>
-                            <v-flex d-flex xs6 md3 v-for="(genre,index) in mediaData.genres" :key="index" >
+                            <v-flex d-flex xs6 lg4 v-for="(genre,index) in mediaData.genres" :key="index" >
                                 <v-btn>{{ genre.name }}</v-btn>
                             </v-flex>
                         </v-layout>
@@ -58,17 +59,27 @@ export default {
             return binding
         },
         userRating(){
-            return Math.round(parseFloat(this.mediaData.vote_average))/2
+            let numRating = parseFloat(this.mediaData.vote_average)
+            let numRatingOnFive = numRating/2
+            return numRatingOnFive
         },
         roundUserRating(){
             return Math.floor(this.userRating);
         },
         restUserRating(){
-            let rest = 5 - this.roundUserRating - this.modUserRating;
+            let rest = 0
+            if (this.modUserRating){
+                rest = 5 - Math.ceil(this.userRating);
+            } else {
+                rest = 5 - Math.floor(this.userRating);
+            }
             return rest;
         },
         modUserRating(){
-            return this.userRating%2;
+            if ((this.userRating - this.roundUserRating) > 0.5){
+                return true
+            } else
+            return false
         }
     }
 }

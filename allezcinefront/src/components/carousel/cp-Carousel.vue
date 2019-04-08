@@ -14,7 +14,7 @@
               <v-flex xs12 class="descr">
                 <h1>LASTEST <span class="red--text">ON</span>LINE <span class="red--text">MO</span>VIES</h1>
                 <h3>IN SPACE NO ONE CAN HEAR YOU SCREAM</h3>
-                <v-btn color="red">GO TO THE FILM</v-btn>
+                <v-btn color="red" @click="goToDetails(item.id)">GO TO THE FILM</v-btn>
               </v-flex>
             </v-layout>  
           </v-container>
@@ -31,10 +31,14 @@ export default {
     data () {
     return {
       info: null,
-      items:[
-        {src:""},{src:""},{src:""},{src:""},{src:""},
-      ],
-    
+      items:[{src:'',id:""},{src:'',id:""},{src:'',id:""},{src:'',id:""},{src:'',id:""}],
+    }
+  },
+  methods:{
+      goToDetails(id){
+          this.$router.push({
+              path : `/details/movie/${id}`
+      })
     }
   },
   mounted () {
@@ -43,8 +47,8 @@ export default {
         .then(response => {
           let i = 0;
             for (i=0;i<5;i++){
-              console.log(i);
-            (this.items[i].src="https://image.tmdb.org/t/p/original"+ response.data.results[i].poster_path);
+              this.items[i].src="https://image.tmdb.org/t/p/original"+ response.data.results[i].poster_path;
+              this.items[i].id= response.data.results[i].id;
             }
         })
   }

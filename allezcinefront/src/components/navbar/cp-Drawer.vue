@@ -36,7 +36,7 @@
                 </v-list-tile-content>
             </v-list-tile>
             <v-list-tile
-            @click="changeView($event,'home')">
+            @click="changeView($event,'')">
                 <v-list-tile-action>
                     <v-icon>home</v-icon>
                 </v-list-tile-action>
@@ -47,7 +47,7 @@
                 </v-list-tile-content>
             </v-list-tile>
             <v-list-tile
-            @click="changeView($event,'movies')">
+            @click="changeView($event,'movie')">
                 <v-list-tile-action>
                     <v-icon>movie</v-icon>
                 </v-list-tile-action>
@@ -58,7 +58,7 @@
                 </v-list-tile-content>
             </v-list-tile>
             <v-list-tile
-            @click="changeView($event,'series')">
+            @click="changeView($event,'tv')">
                 <v-list-tile-action>
                     <v-icon>tv</v-icon>
                 </v-list-tile-action>
@@ -90,7 +90,7 @@ export default {
     methods:{
         changeView(event,reference){
             this.$router.push({
-                name : reference
+                path : `/${reference}`
             })
         },
         showSearchBar(){
