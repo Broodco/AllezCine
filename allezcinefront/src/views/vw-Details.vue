@@ -1,22 +1,33 @@
 <template>
     <v-container>
         <Recap :mediaData="mediaData"/>
+        <v-container align-start align-content-center >
+            <v-layout column>
+                <v-card v-for="(comment,key) in comments" :key="key">
+                    <ShowComments :comment="comment"/>
+                </v-card>
+            </v-layout>
+        </v-container>
+
     </v-container>
 </template>
 
 <script>
 import Recap from '../components/main/details/cp-Recap.vue';
+import ShowComments from '../components/main/details/cp-ShowComments.vue';
 import axios from 'axios';
 export default {
     name: "vw-Details",
     components:{
-        Recap
+        Recap,
+        ShowComments,
     },
     data(){
         return{
             typeOfMedia : this.$route.params.media,
             media_id : this.$route.params.id,
-            mediaData : {}
+            mediaData : {},
+            comments : {},
         }
     },
     methods: {
@@ -31,10 +42,24 @@ export default {
                 .catch(err=>{
                     throw err;
                 })
+        },
+        getComments(){
+            this.comments = {};
+            const url = `http://localhost/AllezCine/allezcineback/read.php?idMovie=${this.media_id}`;
+            axios
+                .get(url)
+                .then(response => {
+                    this.comments = response.data;
+                    console.log(this.comments)
+                })
+                .catch(err=>{
+                    throw err;
+                })
         }
     },
     beforeMount(){
         this.getMediaData()
+        this.getComments()
     }
 }
 </script>
