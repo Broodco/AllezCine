@@ -14,10 +14,13 @@
         )";
     $stmt = $pdo->prepare($sql);
 
-    if(isset($_POST['Title'])){
-        $idMovies = $_POST['idMovies'];
-        $title = $_POST['title'];
-        $texte = $_POST['texte'];
+    $data = json_decode(file_get_contents('php://input'),true);
+    var_dump($data);
+    
+    if(isset($data['Title'])){
+        $idMovies = $data['idMovies'];
+        $title = $data['title'];
+        $texte = $data['texte'];
 
         $stmt->execute([
             'IDMOVIES'=> $idMovies,
