@@ -1,7 +1,12 @@
 <?php
 
     require('./Settings/dbconnect.php');
-    require('./Settings/header.php');
+    //require('./Settings/header.php');
+
+    header("Access-Control-Allow-Methods: POST");
+    header("Access-Control-Max-Age: 3600");
+    header("Access-Control-Allow-Headers: *");
+    header("Access-Control-Allow-Origin: *");
 
 
     $sql = "INSERT INTO `COMMENTAIRES` (`ID-COM`, `ID-MOVIES`, `TITLE`, `TEXTE`, `DATE`, `LIKES`)
@@ -14,13 +19,17 @@
         )";
     $stmt = $pdo->prepare($sql);
 
-    $data = json_decode(file_get_contents('php://input'),true);
+    ini_set('allow_url_fopen', true);
+    $str_json = file_get_contents('php://input');
+    var_dump($str_json);
+    $data = json_decode($str_json);
     var_dump($data);
-    
-    if(isset($data['Title'])){
-        $idMovies = $data['idMovies'];
-        $title = $data['title'];
-        $texte = $data['texte'];
+    json_last_error_msg();
+
+    if(($data->title)){
+        $idMovies = $data->idMovies;
+        $title = $data->title;
+        $texte = $data->texte;
 
         $stmt->execute([
             'IDMOVIES'=> $idMovies,
@@ -29,7 +38,7 @@
         ]);
         
         http_response_code(201);
-        print json_encode(array("message"=>"Contact created"));
+        print json_encode(array("message"=>"Commentaire créé"));
     }else{
         echo "Error posting comment :(";
         http_response_code(404);
