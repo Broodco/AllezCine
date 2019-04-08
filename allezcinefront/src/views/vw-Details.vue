@@ -1,6 +1,9 @@
 <template>
     <v-container>
         <Recap :mediaData="mediaData"/>
+        
+
+        <Ajoutcom :mediaid="media_id"/>
         <v-container align-start align-content-center >
             <v-layout column>
                 <v-card v-for="(comment,key) in comments" :key="key">
@@ -8,8 +11,6 @@
                 </v-card>
             </v-layout>
         </v-container>
-
-        <Ajoutcom :mediaid="media_id"/>
     </v-container>
 </template>
 
