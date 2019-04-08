@@ -9,6 +9,7 @@
         @keydown.down="onArrowDown()"
         @keydown.up="onArrowUp()"
         @keydown.enter="onEnter()"
+        @submit="gotoDetails(this.id,this.mediaType)"
         >
         <ul v-show="isOpen" :class="[isMobile? 'autocomplete-results-mobile' : 'autocomplete-results']">
             <li 
@@ -35,12 +36,12 @@ import axios from 'axios';
 import debounce from 'lodash.debounce'
 
 export default {
-    // const url = `https://api.themoviedb.org/3/search/multi?sort_by=popularity.desc&query=${query}&api_key=833ff06d69182d00cff97e3090365785`
     name: "cp-Searchbar",
     data(){
         return{
             search: '',
             id : null,
+            mediaType : null,
             results : [],
             isOpen : false,
             isLoading: false,
@@ -73,13 +74,15 @@ export default {
                             if (response.data.results[i].name){
                                 let item = {
                                     id : response.data.results[i].id,
-                                    name : response.data.results[i].name
+                                    name : response.data.results[i].name,
+                                    mediaType : response.data.results[i].media_type
                                 }
                                 this.results.push(item)
                             } else {
                                 let item = {
                                     id : response.data.results[i].id,
-                                    name : response.data.results[i].title
+                                    name : response.data.results[i].title,
+                                    mediaType : response.data.results[i].media_type
                                 }
                                 this.results.push(item)
                             }
@@ -91,6 +94,7 @@ export default {
         setResult(result){
             this.search = result.name
             this.id = result.id
+            this.mediaType = result.mediaType
             this.isOpen = false
         },
         onArrowDown() {
@@ -106,9 +110,10 @@ export default {
         onEnter() {
             this.search = this.results[this.arrowCounter].name;
             this.id = this.results[this.arrowCounter].id;
+            this.mediaType = this.results[this.arrowCounter].mediaType;
             this.isOpen = false;
             this.arrowCounter = -1;
-            this.gotoDetails(this.id);
+            this.gotoDetails(this.id,this.mediaType);
         },
         handleClickOutside(evt) {
             if (!this.$el.contains(evt.target)) {
@@ -118,8 +123,10 @@ export default {
                 this.arrowCounter = -1;
             }
         },
-        gotoDetails(){
-            // LINK TO DETAILS PAGE
+        gotoDetails(id,media){
+            this.$router.push({
+                path : `/details/${media}/${id}`
+            })
         }
     },
     mounted() {

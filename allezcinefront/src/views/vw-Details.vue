@@ -9,18 +9,21 @@
             </v-layout>
         </v-container>
 
+        <Ajoutcom :mediaid="media_id"/>
     </v-container>
 </template>
 
 <script>
 import Recap from '../components/main/details/cp-Recap.vue';
 import ShowComments from '../components/main/details/cp-ShowComments.vue';
+import Ajoutcom from '../components/main/details/cp-Ajoutcom';
 import axios from 'axios';
 export default {
     name: "vw-Details",
     components:{
         Recap,
         ShowComments,
+        Ajoutcom
     },
     data(){
         return{
