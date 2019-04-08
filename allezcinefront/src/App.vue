@@ -3,7 +3,7 @@
     <cpNavbar @switchDrawer="switchChildDrawer()"> </cpNavbar>
     <cpDrawer ref="drawerComp" class="hidden-md-and-up"/>
     <cpCarousel></cpCarousel>
-    <cpSocial></cpSocial>
+    <cpSocial class="socialIcons"></cpSocial>
     <router-view></router-view>
     <cpFooter></cpFooter>
   </v-app>
@@ -33,3 +33,11 @@ export default {
   }
 }
 </script>
+<style scoped>
+  .socialIcons{
+    position: fixed;
+    top : 80vh;
+    left : -200px;
+    z-index: 2;
+  }
+</style>

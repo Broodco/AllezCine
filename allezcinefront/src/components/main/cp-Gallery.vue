@@ -3,7 +3,7 @@
         <h1>{{properText(contenu)}}</h1>
         <v-layout align-start justify-space-around wrap row >
             <div v-for="(movie,key) in  (movies)" v-bind:key="key">
-                <Card :movie="{movie}"/>
+                <Card :movie="{movie}" :typeOfMedia="contenu"/>
             </div>
         </v-layout>
     </div>
@@ -55,8 +55,6 @@ export default {
     .gallery{
         background-color: rgb(255, 255, 255);
         /* border: 1px solid green; */
-        margin:30px;
-        padding: 30px;
     }
     h1{
         border-left: 5px solid red;

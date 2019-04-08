@@ -30,7 +30,7 @@ export default {
     methods:{
         changeView(event,reference){
             this.$router.push({
-                name : reference
+                path : `/${reference}`
             })
         },
         sendEvent(){
