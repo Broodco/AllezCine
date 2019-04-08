@@ -32,20 +32,21 @@ export default {
         }
     },
     props:{
-        contenu : String
+        contenu : String,
+        nombre : Number,
     },  
     mounted(){
         axios
             .get(`https://api.themoviedb.org/3/trending/${this.contenu}/day?api_key=833ff06d69182d00cff97e3090365785`)
             .then(response => {
-                this.movies = response.data.results.slice(0,12)
+                this.movies = response.data.results.slice(0,this.nombre)
             })
             console.log(this.movies)
             this.media = this.contenu
     },
     computed:{
         maxTwelve: function() {
-            return this.movies.slice(0,11);
+            return this.movies.slice(0,this.nombre-1);
         }
     }
 }
