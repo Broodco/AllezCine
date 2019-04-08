@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/vw-Home.vue'
-import Movies from './views/vw-Movies.vue'
-import Series from './views/vw-Series.vue'
+import Medias from './views/vw-Medias.vue'
 import Details from './views/vw-Details.vue'
 
 Vue.use(Router)
@@ -16,14 +15,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/movies',
-      name: 'movies',
-      component: Movies
-    },
-    {
-      path: '/series',
-      name: 'series',
-      component: Series
+      path: '/:medias',
+      name: 'medias',
+      component: Medias
     },
     {
       path: '/details/:media/:id',
