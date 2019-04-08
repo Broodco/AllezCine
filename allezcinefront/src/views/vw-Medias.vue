@@ -12,7 +12,6 @@ export default {
             typeOfMedia : this.$route.params.media,
         }
     }
-
 }
 </script>
 

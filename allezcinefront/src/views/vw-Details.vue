@@ -16,12 +16,12 @@ export default {
         return{
             typeOfMedia : this.$route.params.media,
             media_id : this.$route.params.id,
-            mediaData : null
+            mediaData : {}
         }
     },
     methods: {
         getMediaData(){
-            this.mediaData = null;
+            this.mediaData = {};
             const url = `https://api.themoviedb.org/3/${this.typeOfMedia}/${this.media_id}?api_key=833ff06d69182d00cff97e3090365785`;
             axios
                 .get(url)
@@ -33,7 +33,7 @@ export default {
                 })
         }
     },
-    mounted(){
+    beforeMount(){
         this.getMediaData()
     }
 }
