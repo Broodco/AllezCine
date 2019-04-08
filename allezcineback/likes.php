@@ -7,8 +7,8 @@
 
     $stmt = $pdo->prepare($sql);
 
-    if(isset($_GET['idMovie'])){
-        $idCom = $_POST['idMovies'];
+    if(isset($_GET['idCom'])){
+        $idCom = $_GET['idCom'];
 
         $stmt->execute([
             'IDCOM'=> $idCom

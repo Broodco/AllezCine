@@ -37,12 +37,12 @@ props:{
 },
 methods:{
     idClic(){
-        this.comment.idMovies= parseInt(mediaid);
+        this.comment.idMovies= parseInt(this.mediaid);
 
     },
     sendCom(){
         let url = "http://localhost/AllezCine/allezcineback/create.php";
-        this.idCLic;
+        this.idClic();
         axios({
             method: 'post',
             url: url,
