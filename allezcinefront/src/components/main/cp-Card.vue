@@ -8,6 +8,10 @@
                     <h3 v-if="movie.movie.title">{{movie.movie.title}}</h3>
                     <h3 v-else>{{movie.movie.name}}</h3>
                 </v-card-title>
+                <v-card-text>
+                    <h5 v-if="movie.movie.release_date">{{movie.movie.release_date.slice(0,4)}}</h5>
+                    <h5 v-else>{{movie.movie.first_air_date.slice(0,4)}}</h5>
+                </v-card-text>
             </v-card>
         </v-flex>
     </div>
