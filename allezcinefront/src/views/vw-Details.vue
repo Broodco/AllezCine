@@ -1,16 +1,19 @@
 <template>
     <v-container>
         <Recap :mediaData="mediaData"/>
+        <Ajoutcom :mediaid="media_id"/>
     </v-container>
 </template>
 
 <script>
 import Recap from '../components/main/details/cp-Recap.vue';
+import Ajoutcom from '../components/main/details/cp-Ajoutcom';
 import axios from 'axios';
 export default {
     name: "vw-Details",
     components:{
-        Recap
+        Recap,
+        Ajoutcom
     },
     data(){
         return{
