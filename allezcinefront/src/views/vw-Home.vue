@@ -3,8 +3,8 @@
         <v-flex offset-md1 md10 sm12>
             <div id="big">
                 <v-container fluid>
-                    <Gallery contenu="movie"/>
-                    <Gallery contenu="tv"/>
+                    <Gallery :nombre="12" contenu="movie"/>
+                    <Gallery :nombre="12" contenu="tv"/>
                 </v-container>
             </div>
         </v-flex>

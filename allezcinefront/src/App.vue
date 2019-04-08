@@ -4,7 +4,7 @@
     <cpDrawer ref="drawerComp" class="hidden-md-and-up"/>
     <cpCarousel></cpCarousel>
     <cpSocial class="socialIcons"></cpSocial>
-    <router-view></router-view>
+    <router-view :key="$route.fullPath"></router-view>
     <cpFooter></cpFooter>
   </v-app>
 </template>
