@@ -34,6 +34,7 @@ export default {
     },
     methods:{
         sendLike: function() {
+            this.comment.LIKES++;
             var url = `http://localhost/AllezCine/allezcineback/likes.php?idCom=${this.comment.IDCOM}`
             axios
                 .get(url)
