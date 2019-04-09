@@ -7,8 +7,7 @@
     $stmt = $pdo->prepare($sql);
 
     if(isset($_GET['idMovie'])){
-        $idMovies = $_GET['idMovie'];
-
+        $idMovies = htmlspecialchars($_GET['idMovie']);
         $stmt->execute([
             'IDMOVIES'=> $idMovies,
         ]);

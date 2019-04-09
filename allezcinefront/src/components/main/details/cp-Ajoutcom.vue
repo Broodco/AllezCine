@@ -38,19 +38,12 @@ export default {
     methods:{
         idClic(){
             this.comment.idMovies= parseInt(this.mediaid);
-
         },
         sendCom(){
+            let commentLocal = this.comment;
             let url = "http://localhost/AllezCine/allezcineback/create.php";
             this.idClic();
-            axios({
-                method: 'post',
-                url: url,
-                data: this.comment,
-                config: {
-                    headers: {'Content-Type': 'application/json'}
-                }
-            })
+            axios.post(url,JSON.stringify(commentLocal))
             .then(response => {
                     console.log(response.data);
                     this.requestMade = true;
@@ -63,7 +56,6 @@ export default {
         } 
     }
 }
-
 </script>
 
 <style scoped>
