@@ -9,7 +9,7 @@
     header("Access-Control-Allow-Origin: *");
 
 
-    $sql = "INSERT INTO `COMMENTAIRES` (`ID-COM`, `ID-MOVIES`, `TITLE`, `TEXTE`, `DATE`, `LIKES`)
+    $sql = "INSERT INTO `COMMENTAIRES` (`IDCOM`, `IDMOVIES`, `TITLE`, `TEXTE`, `DATE`, `LIKES`)
         VALUES(NULL,
             :IDMOVIES,
             :TITLE,
@@ -23,10 +23,10 @@
     $str_json = file_get_contents('php://input');
     $data = json_decode($str_json);
 
-    if(($data->title)){
-        $idMovies = $data->idMovies;
-        $title = $data->title;
-        $texte = $data->texte;
+    if(($data->title && $data->texte && $data->idMovies)){
+        $idMovies = htmlspecialchars($data->idMovies);
+        $title = htmlspecialchars($data->title);
+        $texte = htmlspecialchars($data->texte);
 
         $stmt->execute([
             'IDMOVIES'=> $idMovies,
