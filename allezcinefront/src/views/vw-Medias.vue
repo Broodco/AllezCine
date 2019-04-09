@@ -5,6 +5,7 @@
                 <div id="big">
                     <v-container fluid>
                     <Gallery :nombre="40" :contenu="typeOfMedia"/>
+                    <v-btn color="warning">Affichez'enplus</v-btn>
                     </v-container>
                 </div>
             </v-flex>
