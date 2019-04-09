@@ -9,7 +9,7 @@
     header("Access-Control-Allow-Origin: *");
 
 
-    $sql = "INSERT INTO `COMMENTAIRES` (`ID-COM`, `ID-MOVIES`, `TITLE`, `TEXTE`, `DATE`, `LIKES`)
+    $sql = "INSERT INTO `COMMENTAIRES` (`IDCOM`, `IDMOVIES`, `TITLE`, `TEXTE`, `DATE`, `LIKES`)
         VALUES(NULL,
             :IDMOVIES,
             :TITLE,

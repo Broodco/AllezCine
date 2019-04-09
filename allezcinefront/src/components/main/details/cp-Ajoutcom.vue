@@ -23,46 +23,45 @@
 <script>
 import axios from "axios";
 export default {
-data(){
-    return {
-        comment:{
-            idMovies:"",
-            title:"",
-            texte:"",
-        }
-    }
-},
-props:{
-    mediaid: String,
-},
-methods:{
-    idClic(){
-        this.comment.idMovies= parseInt(this.mediaid);
-
-    },
-    sendCom(){
-        let url = "http://localhost/AllezCine/allezcineback/create.php";
-        this.idClic();
-        axios({
-            method: 'post',
-            url: url,
-            data: this.comment,
-            config: {
-                headers: {'Content-Type': 'application/json'}
+    data(){
+        return {
+            comment:{
+                idMovies:"",
+                title:"",
+                texte:"",
             }
-        })
-        .then(response => {
-console.log(response.data);
-this.requestMade = true;
-this.message = response.data.message
-this.requestStatus = response.status
-})
-.catch(error => {
-console.log(error)
-});
-} 
-}
+        }
+    },
+    props:{
+        mediaid: String,
+    },
+    methods:{
+        idClic(){
+            this.comment.idMovies= parseInt(this.mediaid);
 
+        },
+        sendCom(){
+            let url = "http://localhost/AllezCine/allezcineback/create.php";
+            this.idClic();
+            axios({
+                method: 'post',
+                url: url,
+                data: this.comment,
+                config: {
+                    headers: {'Content-Type': 'application/json'}
+                }
+            })
+            .then(response => {
+                    console.log(response.data);
+                    this.requestMade = true;
+                    this.message = response.data.message
+                    this.requestStatus = response.status
+                })
+            .catch(error => {
+                console.log(error.request)
+            });
+        } 
+    }
 }
 
 </script>

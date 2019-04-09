@@ -3,7 +3,7 @@
     require('./Settings/dbconnect.php');
     require('./Settings/header.php');
 
-    $sql = "UPDATE `COMMENTAIRES` SET LIKES = LIKES + 1 WHERE `COMMENTAIRES`.`ID-COM` = :IDCOM";
+    $sql = "UPDATE `COMMENTAIRES` SET LIKES = LIKES + 1 WHERE `COMMENTAIRES`.`IDCOM` = :IDCOM";
 
     $stmt = $pdo->prepare($sql);
 

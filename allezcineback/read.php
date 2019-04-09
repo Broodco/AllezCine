@@ -3,7 +3,7 @@
     include('./Settings/dbconnect.php');
     require('./Settings/header.php');
 
-    $sql = "SELECT * FROM `COMMENTAIRES` WHERE (`ID-MOVIES`= :IDMOVIES)";
+    $sql = "SELECT * FROM `COMMENTAIRES` WHERE (`IDMOVIES`= :IDMOVIES)";
     $stmt = $pdo->prepare($sql);
 
     if(isset($_GET['idMovie'])){
