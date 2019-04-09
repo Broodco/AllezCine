@@ -45,7 +45,10 @@ export default {
             this.idClic();
             axios.post(url,JSON.stringify(commentLocal))
             .then(response => {
+                    this.$emit('sent');
                     console.log(response.data);
+                    this.comment.title = "";
+                    this.comment.texte = "";
                     this.requestMade = true;
                     this.message = response.data.message
                     this.requestStatus = response.status

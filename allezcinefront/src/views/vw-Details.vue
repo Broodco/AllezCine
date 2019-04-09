@@ -3,7 +3,7 @@
         <Recap :mediaData="mediaData"/>
         
 
-        <Ajoutcom :mediaid="media_id"/>
+        <Ajoutcom @sent="getComments" :mediaid="media_id"/>
         <v-container align-start align-content-center >
             <v-layout column>
                 <v-card v-for="(comment,key) in comments" :key="key">
