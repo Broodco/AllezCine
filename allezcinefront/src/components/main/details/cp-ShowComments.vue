@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import axios from"axios";
 export default {
     name: "cp-DisplayComments",
     data(){
@@ -31,7 +32,7 @@ export default {
     },
     method:{
         sendLike: function() {
-            let idCom = parseInt(this.comment.ID-COM);
+            let idCom = parseInt(this.comment.IDCOM);
             var url = `http://localhost/AllezCine/allezcineback/likes.php?idCom=${idCom}`
             axios
                 .get(url)
