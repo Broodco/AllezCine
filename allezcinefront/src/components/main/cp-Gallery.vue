@@ -8,7 +8,7 @@
                 </div>
             </v-layout>
         </div>
-        <v-btn large color="error" @click="getFilm">More</v-btn>
+        <v-btn v-if="!home" large color="error" @click="getFilm">More</v-btn>
     </div>
 </template>
 
@@ -39,7 +39,11 @@ export default {
             axios
             .get(`https://api.themoviedb.org/3/discover/${this.contenu}?api_key=833ff06d69182d00cff97e3090365785&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${this.pageNumber}`)
             .then(response => {
-                this.movies.push(...response.data.results)
+                if(this.home){
+                    this.movies.push(...response.data.results.slice(0,11))
+                } else{
+                    this.movies.push(...response.data.results)
+                }
             }),
             console.log(this.movies),
             this.media = this.contenu
@@ -48,10 +52,13 @@ export default {
     props:{
         contenu : String,
         nombre : Number,
+        home : Boolean,
     },  
     mounted(){
         this.getFilm()
-        this.getFilm()
+        if(!this.home){
+            this.getFilm()
+        }
     },
     computed:{
         maxTwelve: function() {
