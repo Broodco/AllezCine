@@ -2,8 +2,7 @@
     <div class="singleContainer">
         <v-flex >
             <v-card flat tile @click.stop="goToDetails()">
-                <!-- {{movie}} -->
-                <v-img :src="'https://image.tmdb.org/t/p/original'+movie.movie.poster_path"/>
+                <v-img class="posterMedia" :src="'https://image.tmdb.org/t/p/original'+movie.movie.poster_path"/>
                 <v-card-title class="text-xs-center">
                     <h3 v-if="movie.movie.title">{{movie.movie.title}}</h3>
                     <h3 v-else>{{movie.movie.name}}</h3>
@@ -43,6 +42,8 @@
 <style scoped>
     .singleContainer{
         margin:20px 5px;
+        min-width: 180px;
+        max-width: 220px;
     }
     .singleContainer:hover{
         cursor: pointer;
@@ -52,7 +53,10 @@
         width: 180px;
         height: auto
     }
-    /*.v-imgage{
-        margin:auto;
-    }  */
+
+    .posterMedia{
+        max-width: 220px;
+        width:100%;    
+    }
+    
 </style>
