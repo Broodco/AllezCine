@@ -4,8 +4,8 @@
             <v-flex offset-md1 md10 sm12>
                 <div id="big">
                     <v-container fluid>
-                    <Gallery :nombre="40" :contenu="typeOfMedia"/>
-                    <v-btn color="warning">Affichez'enplus</v-btn>
+                    <Gallery :pageNumber="pageNumber" :nombre="40" :contenu="typeOfMedia"/>
+                    <v-btn large color="error" @click="julienlepage">More</v-btn>
                     </v-container>
                 </div>
             </v-flex>
@@ -23,11 +23,21 @@ export default {
     data(){
         return {
             typeOfMedia : this.$route.params.medias,
+            pageNumber:1
         }
+    },
+    methods: { 
+        julienlepage(){
+            this.pageNumber++
+            console.log(this.pageNumber);
+        }
+
+
     }
 }
 </script>
 
 <style scoped>
+
 
 </style>
