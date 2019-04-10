@@ -55,7 +55,6 @@ export default {
 <style scoped>
     .gallery{
         background-color: rgb(255, 255, 255);
-        /* border: 1px solid green; */
     }
     h1{
         border-left: 5px solid red;
