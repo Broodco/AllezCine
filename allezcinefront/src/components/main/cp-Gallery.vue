@@ -59,16 +59,17 @@ export default {
         this.getFilm()
         if(!this.home){
             this.getFilm()
+        
+            window.addEventListener('scroll', function(e){
+                var scrollPos = window.scrollY
+                var winHeight = window.innerHeight
+                var docHeight = document.documentElement.scrollHeight
+                var perc = 100 * scrollPos / (docHeight - winHeight)
+                if(perc >= 84){
+                    thisVue.getFilm();
+                }
+            })
         }
-        window.addEventListener('scroll', function(e){
-            var scrollPos = window.scrollY
-            var winHeight = window.innerHeight
-            var docHeight = document.documentElement.scrollHeight
-            var perc = 100 * scrollPos / (docHeight - winHeight)
-            if(perc >= 84){
-                thisVue.getFilm();
-            }
-    })
     },
     computed:{
         maxTwelve: function() {
