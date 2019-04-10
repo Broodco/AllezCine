@@ -48,7 +48,6 @@ export default {
     props:{
         contenu : String,
         nombre : Number,
-        // pageNumber: Number,
     },  
     mounted(){
         this.getFilm()
