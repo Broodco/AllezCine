@@ -6,12 +6,12 @@
             <div>
                 <p class="date">{{comment.DATE}}</p>
                 <span> 
-                    <v-btn depressed flat fab v-on:click="sendLike">
+                    <v-btn :disabled="disabledButton" :ripple="{ center: true }" depressed icon v-on:click="sendLike">
                         <i class="material-icons">
                             thumb_up
                         </i>
                     </v-btn>
-                    <span>{{comment.LIKES}}</span>
+                    <span >{{comment.LIKES}}</span>
                 </span>
             </div>
         </v-layout>
@@ -25,7 +25,7 @@ export default {
     name: "cp-DisplayComments",
     data(){
         return{
-
+            disabledButton : false,
         }
     },
     props:{
@@ -34,6 +34,7 @@ export default {
     },
     methods:{
         sendLike: function() {
+            this.disabledButton = true;
             this.comment.LIKES++;
             var url = `http://localhost/AllezCine/allezcineback/likes.php?idCom=${this.comment.IDCOM}`
             axios
@@ -50,5 +51,7 @@ export default {
 </script>
 
 <style scoped>
-
+    .green{
+        background-color: black;
+    }
 </style>
