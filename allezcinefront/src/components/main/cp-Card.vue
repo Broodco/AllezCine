@@ -9,7 +9,7 @@
                 </v-card-title>
                 <v-card-text>
                     <h5 v-if="movie.movie.release_date">{{movie.movie.release_date.slice(0,4)}}</h5>
-                    <h5 v-else>{{movie.movie.first_air_date.slice(0,4)}}</h5>
+                    <h5 v-else-if="movie.movie.first_air_date">{{movie.movie.first_air_date.slice(0,4)}}</h5>
                 </v-card-text>
             </v-card>
         </v-flex>

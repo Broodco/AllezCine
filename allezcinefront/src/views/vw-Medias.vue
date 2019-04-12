@@ -4,7 +4,8 @@
             <v-flex offset-md1 md10 sm12>
                 <div id="big">
                     <v-container fluid>
-                    <Gallery :nombre="40" :contenu="typeOfMedia"/>
+                    <Gallery ref="francois" :home="false" :nombre="40" :contenu="typeOfMedia"/>
+                    
                     </v-container>
                 </div>
             </v-flex>
@@ -28,5 +29,6 @@ export default {
 </script>
 
 <style scoped>
+
 
 </style>
