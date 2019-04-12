@@ -41,7 +41,7 @@ CREATE TABLE `COMMENTAIRES` (
 -- Dumping data for table `COMMENTAIRES`
 --
 
-INSERT INTO `COMMENTAIRES` (`ID-COM`, `ID-MOVIES`, `TITLE`, `TEXTE`, `DATE`, `LIKES`) VALUES
+INSERT INTO `COMMENTAIRES` (`ID-COM`, `IDMOVIES`, `TITLE`, `TEXTE`, `DATE`, `LIKES`) VALUES
 (1, 10, 'Great movie', 'I love this movie so much I actually thought other people online might be interested by my opinion, as if it had any value', '2019-04-03 07:20:12', 6),
 (2, 10, 'Meh', 'I\'ve seen better', '2019-04-03 08:00:56', 0),
 (4, 10, 'lulz', 'testing,attention please', '2019-04-03 08:24:27', 0),
