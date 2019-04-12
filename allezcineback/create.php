@@ -28,7 +28,7 @@
             print json_encode(array("message"=>"Commentaire créé"));
         }else {
             echo "Error";
-            http_response_code(401);
+            http_response_code(400);
         }
     }else{
         echo "Error posting comment :(";
