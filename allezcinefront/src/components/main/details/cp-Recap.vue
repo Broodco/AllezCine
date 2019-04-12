@@ -12,9 +12,9 @@
                                 {{mediaData.title}}
                             </v-flex>
                             <v-flex xs12 align-self-end class="resp-center">
-                                <v-icon large color="yellow darken-1" v-for="(rating,index) in roundUserRating" :key="index">star</v-icon>
+                                <v-icon large color="yellow darken-1" v-for="index in roundUserRating" :key="index.id">star</v-icon>
                                 <v-icon large color="yellow darken-1" v-if="modUserRating">star_half</v-icon>
-                                <v-icon large color="yellow darken-1" v-for="(left,indexleft) in restUserRating" :key="indexleft">star_border</v-icon>
+                                <v-icon large color="yellow darken-1" v-for="indexleft in restUserRating" :key="indexleft.id">star_border</v-icon>
                             </v-flex>
                         </v-layout>
                     </v-flex>
@@ -30,7 +30,7 @@
                     </v-flex>
                     <v-flex>
                         <v-layout row wrap class='resp-center'>
-                            <v-flex d-flex xs6 lg4 v-for="(genre,index) in mediaData.genres" :key="index" >
+                            <v-flex d-flex xs6 lg4 v-for="(genre,indexCent) in mediaData.genres" :key="indexCent" >
                                 <v-btn>{{ genre.name }}</v-btn>
                             </v-flex>
                         </v-layout>
@@ -44,17 +44,12 @@
 <script>
 export default {
     name : "cp-Recap",
-    data(){
-        return{
-
-        }
-    },
     props:{
         mediaData : Object
     },
     computed: {
         binding () {
-            const binding = {}
+            let binding = {}
             if (this.$vuetify.breakpoint.mdAndUp) binding.column = false
             return binding
         },

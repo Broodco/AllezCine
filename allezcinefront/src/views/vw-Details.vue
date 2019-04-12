@@ -3,10 +3,12 @@
         <Recap :mediaData="mediaData"/>
         <Ajoutcom @sent="getComments" :mediaid="media_id"/>
         <v-container align-start align-content-center >
-            <v-layout column>
-                <v-card v-for="(comment,key) in comments" :key="key">
-                    <ShowComments :comment="comment"/>
-                </v-card>
+            <v-layout>
+                <v-flex sm12 md10 offset-md1>
+                    <v-card v-for="(comment,key) in comments" :key="key">
+                        <ShowComments :comment="comment"/>
+                    </v-card>
+                </v-flex>
             </v-layout>
         </v-container>
     </v-container>
