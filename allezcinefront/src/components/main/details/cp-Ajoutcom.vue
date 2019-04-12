@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import {create} from '../../../axios/localAPI.js'
 export default {
     data(){
         return {
@@ -41,21 +41,19 @@ export default {
         },
         sendCom(){
             let commentLocal = this.comment;
-            let url = "http://localhost/AllezCine/allezcineback/create.php";
             this.idClic();
-            axios.post(url,JSON.stringify(commentLocal))
-            .then(response => {
+            create (commentLocal)
+                .then(response => {
                     this.$emit('sent');
-                    console.log(response.data);
                     this.comment.title = "";
                     this.comment.texte = "";
                     this.requestMade = true;
                     this.message = response.data.message
                     this.requestStatus = response.status
                 })
-            .catch(error => {
-                console.log(error.request)
-            });
+                .catch(err => {
+                    throw err;
+                });
         } 
     }
 }
