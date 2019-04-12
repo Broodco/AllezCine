@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import {discover} from '../../axios/tmdbAPI.js';
 export default {
     name : "cp-Carousel",
     data () {
@@ -38,19 +38,24 @@ export default {
       goToDetails(id){
           this.$router.push({
               path : `/details/movie/${id}`
-      })
-    }
-  },
-  mounted () {
-    axios
-        .get('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=833ff06d69182d00cff97e3090365785')
-        .then(response => {
-          let i = 0;
+          })
+      },
+      getItems(){
+        discover('movie','1')
+          .then(response => {
+            let i = 0;
             for (i=0;i<5;i++){
               this.items[i].src="https://image.tmdb.org/t/p/original"+ response.data.results[i].poster_path;
               this.items[i].id= response.data.results[i].id;
             }
-        })
+          })
+          .catch(err => {
+            throw err
+          })
+      }
+  },
+  mounted () {
+    this.getItems()
   }
 } 
 

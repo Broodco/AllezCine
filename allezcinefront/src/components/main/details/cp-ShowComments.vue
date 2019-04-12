@@ -19,8 +19,7 @@
 </template>
 
 <script>
-import axios from "axios";
-
+import {like} from '../../../axios/localAPI.js'
 export default {
     name: "cp-DisplayComments",
     data(){
@@ -36,14 +35,12 @@ export default {
         sendLike: function() {
             this.disabledButton = true;
             this.comment.LIKES++;
-            var url = `http://localhost/AllezCine/allezcineback/likes.php?idCom=${this.comment.IDCOM}`
-            axios
-                .get(url)
-                .then(function(response){
-                    console.log(response);
+            like(this.comment.IDCOM)
+                .then(response => {
+                    return console.log(response);
                 })
-                .catch(function (error) {
-                    console.log(error);
+                .catch(err => {
+                    return console.log(err);
                 })
         }
     },

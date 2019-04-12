@@ -1,14 +1,14 @@
 <template>
     <v-container>
         <Recap :mediaData="mediaData"/>
-        
-
         <Ajoutcom @sent="getComments" :mediaid="media_id"/>
         <v-container align-start align-content-center >
-            <v-layout column>
-                <v-card v-for="(comment,key) in comments" :key="key">
-                    <ShowComments :comment="comment"/>
-                </v-card>
+            <v-layout>
+                <v-flex sm12 md10 offset-md1>
+                    <v-card v-for="(comment,key) in comments" :key="key">
+                        <ShowComments :comment="comment"/>
+                    </v-card>
+                </v-flex>
             </v-layout>
         </v-container>
     </v-container>
@@ -18,7 +18,8 @@
 import Recap from '../components/main/details/cp-Recap.vue';
 import ShowComments from '../components/main/details/cp-ShowComments.vue';
 import Ajoutcom from '../components/main/details/cp-Ajoutcom';
-import axios from 'axios';
+import {read} from '../axios/localAPI.js'
+import {details} from '../axios/tmdbAPI.js'
 export default {
     name: "vw-Details",
     components:{
@@ -37,24 +38,20 @@ export default {
     methods: {
         getMediaData(){
             this.mediaData = {};
-            const url = `https://api.themoviedb.org/3/${this.typeOfMedia}/${this.media_id}?api_key=833ff06d69182d00cff97e3090365785`;
-            axios
-                .get(url)
+            details(this.typeOfMedia,this.media_id)
                 .then(response => {
-                    this.mediaData = response.data;
+                    this.mediaData = response.data
                 })
-                .catch(err=>{
-                    throw err;
+                .catch(err => {
+                    throw err
                 })
         },
         getComments(){
             this.comments = {};
-            const url = `http://localhost/AllezCine/allezcineback/read.php?idMovie=${this.media_id}`;
-            axios
-                .get(url)
+            read(this.media_id)
                 .then(response => {
+                    console.log(response.data)
                     this.comments = response.data;
-                    console.log(this.comments)
                 })
                 .catch(err=>{
                     throw err;

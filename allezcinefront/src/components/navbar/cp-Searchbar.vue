@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import {query} from '../../axios/tmdbAPI.js'
 import debounce from 'lodash.debounce'
 
 export default {
@@ -63,11 +63,9 @@ export default {
                 }
             }
         },1000),
-        loadResults(){
+        async loadResults(){
             this.results = []
-            const url = `https://api.themoviedb.org/3/search/multi?sort_by=popularity.desc&query=${this.search}&api_key=833ff06d69182d00cff97e3090365785`;
-            axios
-                .get(url)
+            await query(this.search)
                 .then(response => {
                     for (let i = 0 ; i < response.data.results.length; i++){
                         if (i<5){

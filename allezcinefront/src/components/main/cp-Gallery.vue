@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import {discover} from '../../axios/tmdbAPI.js';
 import Card from './cp-Card';
 export default {
     data(){
@@ -34,17 +34,20 @@ export default {
                 return "Films"
             }
         },
-        getFilm(){
+        async getFilm(){
             this.pageNumber ++
-            axios
-            .get(`https://api.themoviedb.org/3/discover/${this.contenu}?api_key=833ff06d69182d00cff97e3090365785&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${this.pageNumber}`)
-            .then(response => {
-                if(this.home){
-                    this.movies.push(...response.data.results.slice(0,11))
-                } else{
-                    this.movies.push(...response.data.results)
-                }
-            }),
+            await discover(this.contenu,this.pageNumber)
+                .then(response => {
+                    if(this.home){
+                        this.movies.push(...response.data.results.slice(0,11))
+                    } else{
+                        this.movies.push(...response.data.results)
+                    }
+                })
+                .catch(err => {
+                    console.log(err)
+                    throw err
+                })
             console.log(this.movies),
             this.media = this.contenu
         },
@@ -59,8 +62,7 @@ export default {
         this.getFilm()
         if(!this.home){
             this.getFilm()
-        
-            window.addEventListener('scroll', function(e){
+            window.addEventListener('scroll', function(){
                 var scrollPos = window.scrollY
                 var winHeight = window.innerHeight
                 var docHeight = document.documentElement.scrollHeight

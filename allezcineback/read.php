@@ -1,17 +1,13 @@
 <?php
-
-    include('./Settings/dbconnect.php');
+    require('./Settings/dbconnect.php');
     require('./Settings/header.php');
-
-    $sql = "SELECT * FROM `COMMENTAIRES` WHERE (`IDMOVIES`= :IDMOVIES)";
+    $sql = "SELECT * FROM COMMENTAIRES WHERE (IDMOVIES = :IDMOVIES)";
     $stmt = $pdo->prepare($sql);
-
     if(isset($_GET['idMovie'])){
         $idMovies = htmlspecialchars($_GET['idMovie']);
         $stmt->execute([
             'IDMOVIES'=> $idMovies,
         ]);
-    
         $commentaires = $stmt->fetchAll();
         try{
             print json_encode($commentaires);
@@ -22,10 +18,4 @@
     } else{
         echo "This movie doesn't exists!";
         http_response_code(404);
-
     }
-
-    
-
-    
-?>

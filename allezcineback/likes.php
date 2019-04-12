@@ -1,14 +1,10 @@
 <?php
-
     require('./Settings/dbconnect.php');
     require('./Settings/header.php');
-
     $sql = "UPDATE `COMMENTAIRES` SET LIKES = LIKES + 1 WHERE `COMMENTAIRES`.`IDCOM` = :IDCOM";
     $stmt = $pdo->prepare($sql);
-
     if(isset($_GET['idCom'])){
         $idCom = htmlspecialchars($_GET['idCom']);
-
         $stmt->execute([
             'IDCOM'=> $idCom
         ]);
@@ -18,4 +14,3 @@
         echo "A problem happened while sending like! ";
         http_response_code(404);
     }
-?>
